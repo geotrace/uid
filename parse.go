@@ -14,8 +14,13 @@ type Info struct {
 	Counter uint32    // счетчик
 }
 
+<<<<<<< HEAD
+// Parse разбирает и возвращает информацию об уникальном идентификаторе. Если
+// строка не является уникальным идентификатором, то возвращается nil.
+=======
 // Parse разбирает и возвращает информацию об уникальном идентификаторе. Если строка не является
 // уникальным идентификатором, то возвращается nil.
+>>>>>>> origin/master
 func Parse(uid string) *Info {
 	if len(uid) != 16 {
 		return nil
@@ -29,6 +34,11 @@ func Parse(uid string) *Info {
 		Time:    time.Unix(int64(binary.BigEndian.Uint32(data[0:4])), 0),
 		Machine: data[4:7],
 		Pid:     binary.BigEndian.Uint16(data[7:9]),
+<<<<<<< HEAD
+		Counter: uint32(uint32(counter[0])<<16 | uint32(counter[1])<<8 |
+			uint32(counter[2])),
+=======
 		Counter: uint32(uint32(counter[0])<<16 | uint32(counter[1])<<8 | uint32(counter[2])),
+>>>>>>> origin/master
 	}
 }
